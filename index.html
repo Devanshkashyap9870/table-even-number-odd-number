@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devanshkashyap</title>
+</head>
+<style>
+    body {
+        background-color: rgb(248, 227, 33);
+    }
+
+    .container {
+        width: 450px;
+        height: 200px;
+        background-color: rgb(252, 11, 171);
+        position: absolute;
+        left: 50%;
+        top: 40%;
+        transform: translate(-50%, -50%);
+        box-shadow: 10px 10px 20px 0 black;
+        border-radius: 10px;
+    }
+
+    p:hover {
+        color: rgba(216, 5, 212, 0.587);
+    }
+
+    input {
+        width: 90%;
+        height: 30px;
+        margin-left: 10px;
+        border: 1px solid rgb(230, 86, 19);
+        margin-bottom: 10px;
+        font-size: 20px;
+        outline: none;
+    }
+
+    p {
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    #eo {
+        height: 30px;
+        margin-left: 35%;
+        border: 1px solid black;
+    }
+
+    button {
+        margin-left: 40px;
+        margin-top: 10px;
+        height: 40px;
+        width: 70px;
+        border-radius: 10px;
+    }
+
+    button:hover {
+        background-color: rgb(232, 39, 229);
+    }
+
+    input:hover {
+        border-color: rgb(38, 187, 194);
+    }
+
+    select:hover {
+        background-color: rgb(87, 225, 28);
+    }
+</style>
+
+<body>
+    <h1 style="text-align: center;"> &#128532; Odd Number,Even number, Prime Numbers and Table &#128532;</h1>
+    <p> &#128512; Created by aadi kumar &#128512;</p>
+    <div class="container">
+        <p>&#128217;Range &#128217; </p>
+        <input type="text" name="" id="no" placeholder="✍🏻"> <br>
+        <select id="eo">
+            <option value=""><h1>Select</h1>&#128072;</option>
+            <option value="Even Numbers">Even Numbers &#128308;</option>
+            <option value="Odd Numbers">Odd Numbers &#128309;</option>
+            <option value="Prime Numbers">Prime Numbers &#128310;</option>
+            <option value="Table">Table &#11093;</option>
+            </select><br>
+            <button onclick="Calc()">Submit &#10004;</button> <br>
+            <h4 id="show" style="text-align: center; font-weight: bold;"></h4>
+    </div>
+    <script>
+            function Calc() 
+            {
+            var num = parseInt(document.getElementById('no').value);
+            var oper = document.getElementById('eo').value;
+            if (oper == "Even Numbers") 
+            {
+                var evenText = "";
+                for( let n = 1; n <= num; n++) 
+                {
+                    if(n % 2 == 0) 
+                    {
+                        evenText = evenText + "<br>" + n + "<br>";
+                    }
+                }
+                document.getElementById("show").innerHTML = evenText;
+            }
+            else if (oper == "Odd Numbers") 
+            {
+                var OddText = "";
+                for (let n = 1; n <= num; n++)
+                {
+                    if (n % 2 == 0) 
+                    {
+                        OddText = OddText + "<br>" + n + "<br>";
+                    }
+                }
+                document.getElementById("show").innerHTML = OddText;
+            }
+            else if (oper == "Prime Numbers") 
+            {
+                var isPrime;
+                var primeText = "";
+                
+                for (var n=2; n < num; n++) 
+                {
+                    isPrime =true;
+                    for (var j = 2; j < n; j++) 
+                    { 
+                        if (n%j == 0) 
+                        {
+                            isPrime = false;
+                        }
+                    }
+                    if(isPrime == true) 
+                    {
+                        primeText = primeText + "<br>" + n + "<br>";
+                    }
+    
+                }
+                document.getElementById("show").innerHTML = primeText
+            }
+            else
+            {
+                var numTable = "";
+                for(let n = 1; n <= 10; n++)
+                {
+                    var value = n * num;
+                    numTable += "<br>" + value + "<br>";
+                }
+                document.getElementById("show").innerHTML = numTable
+            }
+        }
+    </script>
+</body>
+
+
+</html>
